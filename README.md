@@ -4,7 +4,7 @@ Hello i am a freshman at NYIT and a computer/electrical engineering major
 
 Name,Email,ID
 
-public class NameEmailID {
+	public class NameEmailID {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -17,11 +17,11 @@ public class NameEmailID {
 
 	}
 
-}
+	}
 
 addition
 
-public class Addition {
+	public class Addition {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -32,13 +32,13 @@ public class Addition {
 
 	}
 
-}
+	}
 
-Inpuit Addition
+Input Addition
 
-import java.util.Scanner;
+	import java.util.Scanner;
 
-public class InputAddition {
+	public class InputAddition {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int a,b;
@@ -51,4 +51,4 @@ public class InputAddition {
 		int sum = a+b;
 		System.out.println("your sum is " + sum);
 	}
-}
+	}
