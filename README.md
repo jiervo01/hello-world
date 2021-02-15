@@ -67,4 +67,4 @@ public class HW2 {
 		}
 		System.out.println(weekday); 
 	}
-}
+	}
