@@ -1,0 +1,144 @@
+package HW;
+
+import java.util.*;
+class HW3
+{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		isStrictlyIncreasing();
+		
+		//driver for removeDuplicates, input letters in char str[] line
+		char str[] = {'a', 'a', 'a', 'b', 'c', 'q', 'f', 'g', 'a', 'f'};
+		int n = str.length;
+		System.out.print("Input: ");
+		for(int i=0;i<n;i++)
+			System.out.print(str[i]+",");
+
+		System.out.println();
+		       System.out.print("Output: ");
+
+		char str2[]=removeDuplicates(str);
+		n = str2.length;
+		for(int i=0;i<n;i++)
+			System.out.print(str2[i]+",");
+		System.out.println(" ");
+		
+		//driver for remove input numbers in in[] and the number you want removed in v
+	    int inn[] = {0, 1, 3, 2, 3, 0, 3, 1};
+	    int v = 3;
+	    int out[] = remove(v,inn);
+	    System.out.println("Array after all "+v +"'s are removed: ");
+	    for(int p = 0;p<out.length;p++){
+	        System.out.print(out[p]+ ",");
+	    }
+	        System.out.println("");
+	        
+	        //driver for combineOrder put order 1 in ord1 and order 2 in ord 2
+	        int ord1[] = {0, 0, 3, 4, 7};
+	        int ord2[] = {0, 4, 0, 1, 2};
+
+	        int[] ord = combineOrder(ord1,ord2);
+	        System.out.println("Combined order: ");
+	        for(int z = 0;z<5;z++){
+	        	System.out.print(ord[z] + "," );
+	        }
+		
+	}
+	
+	public static void isStrictlyIncreasing ()
+	{
+		Scanner strinc =new Scanner (System.in);
+		double[] one = new double[4];
+		System.out.println("Enter 4 numbers: ");
+		for(int i=0; i<4; i++)
+		{
+			one[i] = strinc.nextDouble();
+		}
+		if(isStrictlyIncreasing(one))
+			System.out.println("The array is strictly increasing.");
+		else
+			System.out.println("The array is not strictly increasing.");
+	}
+	public static boolean isStrictlyIncreasing(double[] in)
+	{
+		for (int i=0; i<in.length-1; i++)
+		{
+			if(in[i]>=in[i+1])
+			{
+				return false;
+			}
+		}
+				return true;
+	}
+	   
+    
+	public static char[] removeDuplicates(char[] in) 
+	{
+	   int[] ch=new int[in.length];
+	   int ind=0; 
+	   int co=0;
+	   for(int i=0;i<in.length;i++)
+		   ch[i]=1; 
+	   for(int i=0;i<in.length;i++)
+	   {
+		   if(ch[i]!=0)
+		   {
+			   for(int j=i+1;j<in.length;j++)
+			   {
+				   if(in[i]==in[j])
+				   ch[j]=0;
+			   }
+		   }
+	   }
+	   for(int i=0;i<in.length;i++)
+	   {
+		   if(ch[i]==1)
+		   co++;
+	   }
+	   char[] result=new char[co];
+	   for(int i=0;i<in.length;i++)
+	   {
+		   if(ch[i]==1)
+		   {
+			   result[ind]=in[i]; 
+			   ind++;
+		   }
+	   }
+
+	   return result;
+	   
+	}
+
+
+public static int[] remove(int v, int[] in){
+    int i, count = 0;
+    for(i = 0;i<in.length;i++)
+    {
+        if(in[i] == v)
+        {
+            count++;
+        }
+    }
+    int out[] = new int[in.length-count];
+    int k = 0;
+    for(i = 0;i<in.length;i++)
+    	{
+        if(in[i]!=v)
+        	{
+            out[k++] = in[i];
+        	}
+    }
+    return out;
+}
+
+	public static int[] combineOrder(int ord1[],int ord2[])
+	{
+		int ord[] = new int[5];
+		for(int z = 0;z<5;z++)
+		{
+			ord[z] = ord1[z] + ord2[z];
+		}
+		return ord;
+	}
+}
