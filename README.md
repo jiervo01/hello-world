@@ -1,107 +1,107 @@
 # hello-world
 Code for class 4/5
 Pay Calculator
-abstract class PayCalculator
-{
-//Create an abstract class PayCalculator that has an attribute payRate given in dollars per hour.
-protected double payRate;
+	abstract class PayCalculator
+	{	
+	//Create an abstract class PayCalculator that has an attribute payRate given in dollars per hour.
+	protected double payRate;
 
-//The class should also have a method computePay(hours) that returns the pay for a given amount of time.
-public double computePay(int hours)
-{
-return hours*payRate;
-}
-}
+	//The class should also have a method computePay(hours) that returns the pay for a given amount of time.
+	public double computePay(int hours)
+	{
+	return hours*payRate;
+	}
+		}
 
-//Derive a class RegularPay from PayCalculator, as described above.
-class RegularPay extends PayCalculator
-{
-//It should have a constructor that has a parameter for the pay rate. It should not override any of the methods.
-public RegularPay(double payRate)
-{
-this.payRate = payRate;
-}
-}
+	//Derive a class RegularPay from PayCalculator, as described above.
+	class RegularPay extends PayCalculator
+	{
+	//It should have a constructor that has a parameter for the pay rate. It should not override any of the methods.
+	public RegularPay(double payRate)
+	{
+	this.payRate = payRate;
+	}
+	}
 
 Hazzard Pay
-class HazardPay extends RegularPay
-{
-public HazardPay(double payRate)
-{
-super(payRate);
-}
-//The new method should return the amount returned by the base class method multiplied by 1.5.
-public double computePay(int hours)
-{
-return hours*payRate*1.5;
-}
-}
+	class HazardPay extends RegularPay
+	{
+	public HazardPay(double payRate)
+	{	
+	super(payRate);
+	}
+	//The new method should return the amount returned by the base class method multiplied by 1.5.
+	public double computePay(int hours)
+	{
+	return hours*payRate*1.5;
+	}
+	}
 
 Discount policy
-abstract class DiscountPolicy{
+	abstract class DiscountPolicy{
 
      abstract int computeDiscount(int count, int itemCost);
 
-}
+	}
 Bulk Discount
-class BulkDiscount extends DiscountPolicy
+	class BulkDiscount extends DiscountPolicy
 
-{    
+	{    
 
-private double percent;
+	private double percent;
 
-private double minimum;
+	private double minimum;
 
-public BulkDiscount(int minimum, double percent)
+	public BulkDiscount(int minimum, double percent)
 
-{
+	{
 
-this.minimum = minimum;
+	this.minimum = minimum;
 
-this.percent = percent;
+	this.percent = percent;
 
-}
+	}
 
-public double computeDiscount(int count, double itemCost)
+	public double computeDiscount(int count, double itemCost)
 
-{
+	{
 
-if (count >= minimum)
+	if (count >= minimum)
 
-{
+	{
 
-return (percent/100)*(count*itemCost); //discount is total price * percentage discount
+	return (percent/100)*(count*itemCost); //discount is total price * percentage discount
 
-}
+	}
 
-return 0;
-
-}
-
-int computeDiscount(int count, int itemCost) {
 	return 0;
-}
 
-}
+	}
+
+	int computeDiscount(int count, int itemCost) {
+	return 0;
+	}
+
+	}
 Message encoder
-public interface MessageEncoder {
-    public abstract String encode(String plainText);
-}
+	public interface MessageEncoder {
+    	public abstract String encode(String plainText);
+	}
 MEssage decoder
-public interface MessageDecoder {
- public abstract String decode(String cipherText);
-}
+	public interface MessageDecoder {
+ 	public abstract String decode(String cipherText);
+	}
 Substitution cipher
-public class SubstitutionCipher implements MessageEncoder, MessageDecoder{
-    private int shiftBy;   
+	public class SubstitutionCipher implements MessageEncoder, MessageDecoder{
+    	private int shiftBy;   
    
 
-    public SubstitutionCipher (int shiftBy){
+    	public SubstitutionCipher (int shiftBy){
         this.shiftBy = shiftBy;
-    }
+    	}
    
 
-    private char shift(char ch, int shiftValue){
+  	  private char shift(char ch, int shiftValue){
         char shiftedChar = ch;       
 
         if(ch >= 'a' && ch <= 'z')
@@ -110,25 +110,25 @@ public class SubstitutionCipher implements MessageEncoder, MessageDecoder{
         else if(ch >= 'A' && ch <= 'Z')
             shiftedChar = (char) ( 'A' + ( ch - 'A' + shiftValue ) %26 );
         return shiftedChar;
-    }
+ 	   }
    
 
-    public String encode(String plainText){
-        String encodedMsg = "";
-        for( int i = 0; i < plainText.length(); i++){
+ 	   public String encode(String plainText){
+   	     String encodedMsg = "";
+   	     for( int i = 0; i < plainText.length(); i++){
             char ch = plainText.charAt(i);
             encodedMsg += shift(ch, shiftBy);
-        }
-        return encodedMsg;
-    }
-
+     	   }
+     	   return encodedMsg;
+  	  }
+	
 	@Override
 	public String decode(String cipherText) {
 
 		return null;
 	}
 
-} 
+	} 
 
 Driver
 	public static void main(String[] args) {
