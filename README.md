@@ -1,16 +1,14 @@
 # hello-world
 Code for class 4/5
 Pay Calculator
+	
 	abstract class PayCalculator
 	{	
-	//Create an abstract class PayCalculator that has an attribute payRate given in dollars per hour.
 	protected double payRate;
-
-	//The class should also have a method computePay(hours) that returns the pay for a given amount of time.
 	public double computePay(int hours)
-	{
-	return hours*payRate;
-	}
+		{
+		return hours*payRate;
+		}
 		}
 
 	//Derive a class RegularPay from PayCalculator, as described above.
@@ -24,6 +22,7 @@ Pay Calculator
 	}
 
 Hazzard Pay
+	
 	class HazardPay extends RegularPay
 	{
 	public HazardPay(double payRate)
@@ -38,12 +37,14 @@ Hazzard Pay
 	}
 
 Discount policy
+	
 	abstract class DiscountPolicy{
 
      abstract int computeDiscount(int count, int itemCost);
 
 	}
 Bulk Discount
+	
 	class BulkDiscount extends DiscountPolicy
 
 	{    
@@ -84,14 +85,17 @@ Bulk Discount
 
 	}
 Message encoder
+	
 	public interface MessageEncoder {
     	public abstract String encode(String plainText);
 	}
 MEssage decoder
+	
 	public interface MessageDecoder {
  	public abstract String decode(String cipherText);
 	}
 Substitution cipher
+	
 	public class SubstitutionCipher implements MessageEncoder, MessageDecoder{
     	private int shiftBy;   
    
@@ -131,10 +135,11 @@ Substitution cipher
 	} 
 
 Driver
+	
 	public static void main(String[] args) {
 
-				HazardPay HP = new HazardPay(44);
-				System.out.println("Pay for HP is given by " +HP.computePay(45));
+	HazardPay HP = new HazardPay(44);
+	System.out.println("Pay for HP is given by " +HP.computePay(45));
 				
 
                 DiscountPolicy dp = new BulkDiscount(10,5);
